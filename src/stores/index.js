@@ -14,7 +14,8 @@ export const useUserStore = defineStore('user', () => {
       hobbies: [],
       liguagens: [],
       biografia: ''
-    }
+    },
+    error: ''
   })
 
   const updateUser = (user) => {

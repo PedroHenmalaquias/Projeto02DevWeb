@@ -20,8 +20,8 @@
     endereco: '',
     cidade: '',
     estado: '',
-    hobbies: '',
-    liguagens: '',
+    hobbies: [],
+    linguagens: [],
     biografia: ''
   })
 
@@ -48,7 +48,6 @@
     }catch(error){
       console.log(error)
     }
-    console.log(defaultUser)
   
   }
   </script>
@@ -97,14 +96,46 @@
             <label for="">Endereço:</label>
             <input type="text" v-model="defaultUser.endereco" />
           </div>
-          <div>
-            <label for="">Hobbies:</label>
-            <input type="text" v-model="defaultUser.hobbies" />
-          </div>
-          <div>
-            <label for="">Linguagens de Programação:</label>
-            <input type="text" v-model="defaultUser.linguagens" />
-          </div>
+          <hr>
+
+          <div class="checks">
+            <p>Hobbies</p>        
+            <span>
+          <input type="checkbox" id="hobby1" value='Futebol' v-model="defaultUser.hobbies"> <label
+            for="hobby1">Futebol</label>
+        </span>
+        <span>
+          <input type="checkbox" id="hobby2" value='Natação' v-model="defaultUser.hobbies"> <label
+            for="hobby2">Natação</label>
+        </span>
+        <span>
+          <input type="checkbox" id="hobby3" value="Volei" v-model="defaultUser.hobbies"> <label for="hobby3">Vôlei</label>
+        </span>
+        <span>
+          <input type="checkbox" id="hobby3" value="Video-Game" v-model="defaultUser.hobbies"> <label
+            for="hobby3">Video-Game</label>
+        </span>
+      </div>
+      <hr>
+      <p>Linguagens de Programação</p>
+      <div class="checks">
+        <span>
+          <input type="checkbox" id="hobby1" value='C#' v-model="defaultUser.linguagens"> <label
+            for="linguagem1">C#</label>
+        </span>
+        <span>
+          <input type="checkbox" id="linguagem2" value='Javascript' v-model="defaultUser.linguagens"> <label
+            for="linguagem2">Javascript</label>
+        </span>
+        <span>
+          <input type="checkbox" id="linguagem3" value="Fortran" v-model="defaultUser.linguagens"> <label for="linguagem3">Fortran</label>
+        </span>
+        <span>
+          <input type="checkbox" id="linguagem3" value="Python" v-model="defaultUser.linguagens"> <label
+            for="linguagem3">Python</label>
+        </span>
+      </div>
+
         <div>
           <label for="">Biografia:</label>
           <input type="text" v-model="defaultUser.biografia" />
@@ -119,9 +150,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: auto;
-    background-color: #eee;
+    margin:  15px auto;
   }
   form {
     display: flex;
@@ -132,5 +161,11 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  input, select {
+    border: 2px solid  #333;
+    border-radius: 5px;
+    padding: 5px;
   }
   </style>

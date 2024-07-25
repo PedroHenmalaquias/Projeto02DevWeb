@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { useStorage } from '@vueuse/core'
+import router from '@/router'
 
 export const useUserStore = defineStore('user', () => {
   const state = useStorage('localUser', {
@@ -19,6 +20,8 @@ export const useUserStore = defineStore('user', () => {
   })
 
   const updateUser = (user) => {
+    console.log(user)
+    console.log(state.value.localUser)
     try {
       state.value.localUser =  {
          nome: user.nome,
@@ -29,9 +32,10 @@ export const useUserStore = defineStore('user', () => {
          cidade: user.cidade,
          estado: user.estado,
          hobbies: user.hobbies,
-         liguagens: user.liguagens,
+         linguagens: user.linguagens,
          biografia: user.biografia
        }
+       window.location.reload()
     } catch (error) {
       state.error = error
       console.log(state.error)
@@ -39,6 +43,7 @@ export const useUserStore = defineStore('user', () => {
   }
 
   function deleteUser() {
+    try{
     state.value.localUser = {
       nome: '',
       email: '',
@@ -52,6 +57,12 @@ export const useUserStore = defineStore('user', () => {
       biografia: ''
     }
     localStorage.clear()
+    router.push('/')
+    }
+    catch (error) {
+      state.error = error
+      console.log(state.error)
+    }
   }
 
   return { state, deleteUser, updateUser }

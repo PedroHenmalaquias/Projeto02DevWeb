@@ -111,10 +111,10 @@ export class Verificar {
         this.verificarEndereco(user.endereco) && 
         this.verificarCidade(user.cidade) && 
         this.verificarEstado(user.estado) && 
-        // this.verificarHobbies(user.hobbies) && 
-        // this.verificarLinguagens(user.linguagens) && 
-        this.verificarBiografia(user.biografia)){   
-            return ""
+        this.verificarHobbies(user.hobbies) && 
+        this.verificarLinguagens(user.linguagens) && 
+        this.verificarBiografia(user.biografia)){
+            return true
         }
     }
 }

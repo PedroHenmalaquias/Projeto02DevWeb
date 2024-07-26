@@ -52,8 +52,8 @@ export const useUserStore = defineStore('user', () => {
       endereco: '',
       cidade: '',
       estado: '',
-      hobbies: '',
-      liguagens: '',
+      hobbies: [],
+      liguagens: [],
       biografia: ''
     }
     localStorage.clear()
